@@ -7,8 +7,8 @@ using UnityEngine;
 namespace ToyRepairShop.UI
 {
     /// <summary>
-    /// Wires a set of ToolButtonView instances to a ToolSelectionController.
-    /// Purely a UI adapter - no repair/gameplay rules live here.
+    /// Wires a set of ToolButtonView instances to a ToolManager. Purely a
+    /// UI adapter - no repair/gameplay rules live here.
     /// </summary>
     public sealed class ToolbarView : MonoBehaviour
     {
@@ -17,10 +17,10 @@ namespace ToyRepairShop.UI
         [SerializeField, Tooltip("Optional placeholder SFX played when a tool is selected.")]
         private AudioClip _toolSelectedSfx;
 
-        private ToolSelectionController _selection;
+        private ToolManager _selection;
 
-        /// <summary>Wires this toolbar to the given selection controller. Called by the scene's composition root.</summary>
-        public void Initialize(ToolSelectionController selection)
+        /// <summary>Wires this toolbar to the given tool manager. Called by the scene's composition root.</summary>
+        public void Initialize(ToolManager selection)
         {
             _selection = selection;
 
