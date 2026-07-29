@@ -27,6 +27,9 @@ namespace ToyRepairShop.EditorTools
         {
             DumpForTexture("Assets/Art/Atlas_Toys_01.png");
             DumpForTexture("Assets/Art/Atlas_Tools_01.png");
+            DumpForTexture("Assets/Art/Atlas_UI_01.png");
+            DumpForTexture("Assets/Art/Atlas_Effects_01.png");
+            DumpForTexture("Assets/Art/Environment Atlas.png");
         }
 
         [MenuItem("Tools/ToyRepairShop/Art/Preview Toys Grid Slice")]
