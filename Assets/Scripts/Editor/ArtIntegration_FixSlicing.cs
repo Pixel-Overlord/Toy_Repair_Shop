@@ -49,18 +49,23 @@ namespace ToyRepairShop.EditorTools
         [MenuItem("Tools/ToyRepairShop/Art/Fix Atlas Slicing (Alpha-Bounds)")]
         public static void Run()
         {
-            List<RectInt> toyBlobs = AlphaBoundsSlicer.DetectBlobs(ToysAtlasPath, alphaThreshold: 40, minSize: 40);
-            AlphaBoundsSlicer.WriteContactSheet(ToysAtlasPath, toyBlobs, "Assets/Art/_Debug/Atlas_Toys_01_contactsheet.png", columns: 6);
+            // Atlas_Toys_01 has no real alpha channel (fully opaque; the
+            // "transparent" checker is baked into the RGB pixels), so
+            // alpha-bounds detection can't work on it - but it turned out
+            // to be a genuinely clean, evenly-spaced 6x3 grid (verified
+            // via a rendered grid-preview contact sheet), so it uses the
+            // plain grid slicer instead. Atlas_Tools_01 has real alpha
+            // and irregular spacing, so it uses alpha-bounds.
+            AtlasGridSlicer.SliceGrid(ToysAtlasPath, 6, 3, ToySpriteNames);
+            bool toysOk = true;
 
             List<RectInt> toolBlobs = AlphaBoundsSlicer.DetectBlobs(ToolsAtlasPath, alphaThreshold: 40, minSize: 30);
             AlphaBoundsSlicer.WriteContactSheet(ToolsAtlasPath, toolBlobs, "Assets/Art/_Debug/Atlas_Tools_01_contactsheet.png", columns: 8);
 
-            bool toysOk = toyBlobs.Count == ToySpriteNames.Length;
             bool toolsOk = toolBlobs.Count == ToolSpriteNames.Length;
 
             if (toysOk)
             {
-                AlphaBoundsSlicer.ApplySprites(ToysAtlasPath, toyBlobs, ToySpriteNames);
                 WireToyData("Assets/ScriptableObjects/Toys/BrokenTeddy.asset", "TeddyBear_Broken", "TeddyBear_Repaired");
                 WireToyData("Assets/ScriptableObjects/Toys/BrokenRobot.asset", "Robot_Broken", "Robot_Repaired");
                 WireToyData("Assets/ScriptableObjects/Toys/BrokenToyCar.asset", "Car_Broken", "Car_Repaired");
@@ -102,7 +107,7 @@ namespace ToyRepairShop.EditorTools
 
             AssetDatabase.SaveAssets();
 
-            string message = $"Toys: detected {toyBlobs.Count} blobs (expected {ToySpriteNames.Length}) - {(toysOk ? "applied" : "SKIPPED, count mismatch")}.\n" +
+            string message = "Toys: grid-sliced (6x3) and applied.\n" +
                               $"Tools: detected {toolBlobs.Count} blobs (expected {ToolSpriteNames.Length}) - {(toolsOk ? "applied" : "SKIPPED, count mismatch")}.\n\n" +
                               "Contact sheets written to Assets/Art/_Debug/ for visual verification.";
 
