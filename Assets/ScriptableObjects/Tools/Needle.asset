@@ -15,6 +15,6 @@ MonoBehaviour:
   _toolId: tool_needle
   _toolName: Needle
   _description: Sewing needle for stitching torn fabric.
-  _icon: {fileID: 0}
+  _icon: {fileID: -8965589683764080865, guid: 12c3ff146fb5ec449a72dace916b3c00, type: 3}
   _locked: 1
   _unlockCost: 50

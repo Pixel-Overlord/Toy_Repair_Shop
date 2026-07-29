@@ -15,6 +15,6 @@ MonoBehaviour:
   _toolId: tool_sponge
   _toolName: Sponge
   _description: Soft sponge for washing.
-  _icon: {fileID: 0}
+  _icon: {fileID: 1836972978907301929, guid: 12c3ff146fb5ec449a72dace916b3c00, type: 3}
   _locked: 0
   _unlockCost: 0

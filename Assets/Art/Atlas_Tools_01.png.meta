@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,679 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sponge
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928c2cd013d3e7910800000000000000
+      internalID: 1836972978907301929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoapBar
+      rect:
+        serializedVersion: 2
+        x: 221.75
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae470f9d7714dc20800000000000000
+      internalID: 3230232661037895333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CleaningBrush
+      rect:
+        serializedVersion: 2
+        x: 443.5
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 113dc2e8c40e6bf00800000000000000
+      internalID: 1132338975737697041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlueBottle
+      rect:
+        serializedVersion: 2
+        x: 665.25
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e897af2600cf2d4e0800000000000000
+      internalID: -1958225809361962610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towel
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e9cf0b5b3600420800000000000000
+      internalID: 2594183017374981680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedleThread
+      rect:
+        serializedVersion: 2
+        x: 1108.75
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1fc5513fa3d39380800000000000000
+      internalID: -8965589683764080865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PaintTube_Pink
+      rect:
+        serializedVersion: 2
+        x: 1330.5
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5bfd78ffd2e78f00800000000000000
+      internalID: 1119112483999447900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paintbrush
+      rect:
+        serializedVersion: 2
+        x: 1552.25
+        y: 665.25
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 230806bdc97d7bce0800000000000000
+      internalID: -1389404891325104078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SprayBottle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7393761fcd09fe2d0800000000000000
+      internalID: -3247217527693559497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagnifyingGlass
+      rect:
+        serializedVersion: 2
+        x: 221.75
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52a9e1647e78fa9a0800000000000000
+      internalID: -6219603132991759835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pliers
+      rect:
+        serializedVersion: 2
+        x: 443.5
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b03fda6a7583030800000000000000
+      internalID: 3474623485910911849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screwdriver
+      rect:
+        serializedVersion: 2
+        x: 665.25
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4cae1f68732ab40800000000000000
+      internalID: 5449979551795561701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tweezers
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac9001379383e1d0800000000000000
+      internalID: -3322667414683870040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tape
+      rect:
+        serializedVersion: 2
+        x: 1108.75
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ec25dc90da30140800000000000000
+      internalID: 4684778295006514797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mallet
+      rect:
+        serializedVersion: 2
+        x: 1330.5
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f0947a14b23ef10800000000000000
+      internalID: 2297727795868536606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hairdryer
+      rect:
+        serializedVersion: 2
+        x: 1552.25
+        y: 443.5
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ae4b27f74cec4f0800000000000000
+      internalID: -806491231588390372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirBlower
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d857439a818d44cb0800000000000000
+      internalID: -4880538495733172851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolishJar
+      rect:
+        serializedVersion: 2
+        x: 221.75
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18573d5dd654dfe00800000000000000
+      internalID: 1080095823679944065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CottonSwab
+      rect:
+        serializedVersion: 2
+        x: 443.5
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbf1b3b3195bb95d0800000000000000
+      internalID: -3054648286872133697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OilCan
+      rect:
+        serializedVersion: 2
+        x: 665.25
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66643f5bd258a3dc0800000000000000
+      internalID: -3658465315912464794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoapBowl
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c2ec37a3bb647a0800000000000000
+      internalID: -6393216761280451496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vacuum
+      rect:
+        serializedVersion: 2
+        x: 1108.75
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5c2de27e3ba0070800000000000000
+      internalID: 8073463087519417835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bucket
+      rect:
+        serializedVersion: 2
+        x: 1330.5
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492a736dbdcf41430800000000000000
+      internalID: 3752902410628473492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gloves
+      rect:
+        serializedVersion: 2
+        x: 1552.25
+        y: 221.75
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22318dd55fbbdf1d0800000000000000
+      internalID: -3315287088158993630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Duster
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ccb6ecb86f652040800000000000000
+      internalID: 4622223088202202310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrubBrush
+      rect:
+        serializedVersion: 2
+        x: 221.75
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b299458c83378e0800000000000000
+      internalID: -1696950201524606073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoldedCloth
+      rect:
+        serializedVersion: 2
+        x: 443.5
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ec1ba9e83ebea50800000000000000
+      internalID: 6551580284560723578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlueGun
+      rect:
+        serializedVersion: 2
+        x: 665.25
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70bce9e40ffdc430800000000000000
+      internalID: 3804977656767492218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PaintTube_Green
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1943a1a4b50fb820800000000000000
+      internalID: 2936071755432937756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatGun
+      rect:
+        serializedVersion: 2
+        x: 1108.75
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6733f1b13cd959a0800000000000000
+      internalID: -6243717302375467154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Polisher
+      rect:
+        serializedVersion: 2
+        x: 1330.5
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dceff3c779297940800000000000000
+      internalID: 5294308431316905169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UtilityKnife
+      rect:
+        serializedVersion: 2
+        x: 1552.25
+        y: 0
+        width: 221.75
+        height: 221.75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91364373163bcaed0800000000000000
+      internalID: -2401347271175937255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +791,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AirBlower: -4880538495733172851
+      Bucket: 3752902410628473492
+      CleaningBrush: 1132338975737697041
+      CottonSwab: -3054648286872133697
+      Duster: 4622223088202202310
+      FoldedCloth: 6551580284560723578
+      Gloves: -3315287088158993630
+      GlueBottle: -1958225809361962610
+      GlueGun: 3804977656767492218
+      Hairdryer: -806491231588390372
+      HeatGun: -6243717302375467154
+      MagnifyingGlass: -6219603132991759835
+      Mallet: 2297727795868536606
+      NeedleThread: -8965589683764080865
+      OilCan: -3658465315912464794
+      PaintTube_Green: 2936071755432937756
+      PaintTube_Pink: 1119112483999447900
+      Paintbrush: -1389404891325104078
+      Pliers: 3474623485910911849
+      PolishJar: 1080095823679944065
+      Polisher: 5294308431316905169
+      Screwdriver: 5449979551795561701
+      ScrubBrush: -1696950201524606073
+      SoapBar: 3230232661037895333
+      SoapBowl: -6393216761280451496
+      Sponge: 1836972978907301929
+      SprayBottle: -3247217527693559497
+      Tape: 4684778295006514797
+      Towel: 2594183017374981680
+      Tweezers: -3322667414683870040
+      UtilityKnife: -2401347271175937255
+      Vacuum: 8073463087519417835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
