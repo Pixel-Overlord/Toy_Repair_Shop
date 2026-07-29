@@ -113,10 +113,10 @@ TextureImporter:
       name: Sponge
       rect:
         serializedVersion: 2
-        x: 0
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 11
+        y: 638
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: SoapBar
       rect:
         serializedVersion: 2
-        x: 221.75
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 256
+        y: 641
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: CleaningBrush
       rect:
         serializedVersion: 2
-        x: 443.5
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 509
+        y: 638
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: GlueBottle
       rect:
         serializedVersion: 2
-        x: 665.25
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 713
+        y: 638
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: Towel
       rect:
         serializedVersion: 2
-        x: 887
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 947
+        y: 638
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,13 +218,13 @@ TextureImporter:
       name: NeedleThread
       rect:
         serializedVersion: 2
-        x: 1108.75
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 1171
+        y: 642
+        width: 219
+        height: 221
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 30, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -239,13 +239,13 @@ TextureImporter:
       name: PaintTube_Pink
       rect:
         serializedVersion: 2
-        x: 1330.5
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 1355
+        y: 640
+        width: 219
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -260,10 +260,10 @@ TextureImporter:
       name: Paintbrush
       rect:
         serializedVersion: 2
-        x: 1552.25
-        y: 665.25
-        width: 221.75
-        height: 221.75
+        x: 1543
+        y: 638
+        width: 221
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: SprayBottle
       rect:
         serializedVersion: 2
-        x: 0
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 11
+        y: 415
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +302,10 @@ TextureImporter:
       name: MagnifyingGlass
       rect:
         serializedVersion: 2
-        x: 221.75
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 237
+        y: 433
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,10 +323,10 @@ TextureImporter:
       name: Pliers
       rect:
         serializedVersion: 2
-        x: 443.5
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 471
+        y: 428
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,10 +344,10 @@ TextureImporter:
       name: Screwdriver
       rect:
         serializedVersion: 2
-        x: 665.25
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 699
+        y: 421
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,10 +365,10 @@ TextureImporter:
       name: Tweezers
       rect:
         serializedVersion: 2
-        x: 887
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 905
+        y: 424
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,10 +386,10 @@ TextureImporter:
       name: Tape
       rect:
         serializedVersion: 2
-        x: 1108.75
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 1130
+        y: 427
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,13 +407,13 @@ TextureImporter:
       name: Mallet
       rect:
         serializedVersion: 2
-        x: 1330.5
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 1346
+        y: 426
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 18, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -428,10 +428,10 @@ TextureImporter:
       name: Hairdryer
       rect:
         serializedVersion: 2
-        x: 1552.25
-        y: 443.5
-        width: 221.75
-        height: 221.75
+        x: 1557
+        y: 430
+        width: 217
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -450,9 +450,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        y: 225
+        width: 240
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -470,10 +470,10 @@ TextureImporter:
       name: PolishJar
       rect:
         serializedVersion: 2
-        x: 221.75
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        x: 227
+        y: 214
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -491,10 +491,10 @@ TextureImporter:
       name: CottonSwab
       rect:
         serializedVersion: 2
-        x: 443.5
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        x: 444
+        y: 222
+        width: 203
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: OilCan
       rect:
         serializedVersion: 2
-        x: 665.25
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        x: 632
+        y: 223
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -533,10 +533,10 @@ TextureImporter:
       name: SoapBowl
       rect:
         serializedVersion: 2
-        x: 887
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        x: 860
+        y: 209
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,10 +554,10 @@ TextureImporter:
       name: Vacuum
       rect:
         serializedVersion: 2
-        x: 1108.75
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        x: 1099
+        y: 217
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -596,10 +596,10 @@ TextureImporter:
       name: Gloves
       rect:
         serializedVersion: 2
-        x: 1552.25
-        y: 221.75
-        width: 221.75
-        height: 221.75
+        x: 1528
+        y: 224
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -618,9 +618,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 221.75
-        height: 221.75
+        y: 22
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -638,10 +638,10 @@ TextureImporter:
       name: ScrubBrush
       rect:
         serializedVersion: 2
-        x: 221.75
-        y: 0
-        width: 221.75
-        height: 221.75
+        x: 217
+        y: 28
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -659,10 +659,10 @@ TextureImporter:
       name: FoldedCloth
       rect:
         serializedVersion: 2
-        x: 443.5
-        y: 0
-        width: 221.75
-        height: 221.75
+        x: 429
+        y: 20
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -680,10 +680,10 @@ TextureImporter:
       name: GlueGun
       rect:
         serializedVersion: 2
-        x: 665.25
-        y: 0
-        width: 221.75
-        height: 221.75
+        x: 646
+        y: 19
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -702,9 +702,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 887
-        y: 0
-        width: 221.75
-        height: 221.75
+        y: 1
+        width: 204
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -722,10 +722,10 @@ TextureImporter:
       name: HeatGun
       rect:
         serializedVersion: 2
-        x: 1108.75
-        y: 0
-        width: 221.75
-        height: 221.75
+        x: 1069
+        y: 20
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -743,10 +743,10 @@ TextureImporter:
       name: Polisher
       rect:
         serializedVersion: 2
-        x: 1330.5
-        y: 0
-        width: 221.75
-        height: 221.75
+        x: 1291
+        y: 12
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -764,10 +764,10 @@ TextureImporter:
       name: UtilityKnife
       rect:
         serializedVersion: 2
-        x: 1552.25
-        y: 0
-        width: 221.75
-        height: 221.75
+        x: 1524
+        y: 18
+        width: 240
+        height: 222
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
