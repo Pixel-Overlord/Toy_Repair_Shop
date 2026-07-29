@@ -11,6 +11,25 @@ namespace ToyRepairShop.EditorTools
     /// </summary>
     public static class ArtIntegration_ThresholdProbe
     {
+        [MenuItem("Tools/ToyRepairShop/Art/Probe UI Atlas Alpha Thresholds")]
+        public static void ProbeUIAlpha()
+        {
+            int[] thresholds = { 40, 100, 150, 180, 200, 220, 240, 250, 253 };
+            foreach (int t in thresholds)
+            {
+                var blobs = AlphaBoundsSlicer.DetectBlobs("Assets/Art/Atlas_UI_01.png", (byte)t, minSize: 40);
+                Debug.Log($"PROBE UI alpha={t} -> {blobs.Count} blobs");
+            }
+        }
+
+        [MenuItem("Tools/ToyRepairShop/Art/Contact Sheet UI Atlas (minSize 40)")]
+        public static void ContactSheetUI()
+        {
+            var blobs = AlphaBoundsSlicer.DetectBlobs("Assets/Art/Atlas_UI_01.png", alphaThreshold: 253, minSize: 40);
+            AlphaBoundsSlicer.WriteContactSheet("Assets/Art/Atlas_UI_01.png", blobs, "Assets/Art/_Debug/Atlas_UI_01_contactsheet.png", columns: 6);
+            Debug.Log($"CONTACTSHEET UI wrote {blobs.Count} blobs");
+        }
+
         [MenuItem("Tools/ToyRepairShop/Art/Probe Toys Atlas Thresholds")]
         public static void ProbeToys()
         {
@@ -19,6 +38,17 @@ namespace ToyRepairShop.EditorTools
             {
                 var blobs = AlphaBoundsSlicer.DetectBlobs("Assets/Art/Atlas_Toys_01.png", (byte)t, minSize: 40);
                 Debug.Log($"PROBE Toys threshold={t} -> {blobs.Count} blobs");
+            }
+        }
+
+        [MenuItem("Tools/ToyRepairShop/Art/Probe UI Atlas MinSize")]
+        public static void ProbeUI()
+        {
+            int[] minSizes = { 10, 20, 30, 40, 50, 60, 70, 80 };
+            foreach (int m in minSizes)
+            {
+                var blobs = AlphaBoundsSlicer.DetectBlobs("Assets/Art/Atlas_UI_01.png", alphaThreshold: 40, minSize: m);
+                Debug.Log($"PROBE UI minSize={m} -> {blobs.Count} blobs");
             }
         }
 
