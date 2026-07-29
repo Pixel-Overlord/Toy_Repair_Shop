@@ -25,3 +25,5 @@ MonoBehaviour:
   _estimatedRepairTime: 60
   _requiredRepairSteps:
   - {fileID: 11400000, guid: f1b2088f7d8b2a63c5a4c60263bef932, type: 2}
+  - {fileID: 11400000, guid: 1ce6691f74812286cd157d6a798e625d, type: 2}
+  - {fileID: 11400000, guid: 20458f373b2c6583250a89b55786e36c, type: 2}

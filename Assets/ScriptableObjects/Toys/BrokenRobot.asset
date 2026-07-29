@@ -24,4 +24,6 @@ MonoBehaviour:
   _unlockLevel: 3
   _estimatedRepairTime: 120
   _requiredRepairSteps:
+  - {fileID: 11400000, guid: fb3f447e1d38d188acf3a762bb5aac26, type: 2}
+  - {fileID: 11400000, guid: a5fd66d4720be5408429d8440ca84a15, type: 2}
   - {fileID: 11400000, guid: 5c0435454bfc5735ba4fc99e2fd073b4, type: 2}
