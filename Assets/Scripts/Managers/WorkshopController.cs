@@ -1,3 +1,5 @@
+using ToyRepairShop.Data.Enums;
+using ToyRepairShop.Gameplay.Behaviours;
 using ToyRepairShop.Gameplay.Controllers;
 using ToyRepairShop.Gameplay.Interaction;
 using ToyRepairShop.Gameplay.Models;
@@ -9,11 +11,11 @@ namespace ToyRepairShop.Managers
 {
     /// <summary>
     /// Composition root for the Workshop scene. Constructs the pure C#
-    /// RepairController/ToolSelectionController, wires the spawner,
-    /// interaction, and view components to them via events, and plays the
-    /// placeholder repair-complete SFX. No repair rules live here - only
-    /// wiring, mirroring how Bootstrapper only wires managers rather than
-    /// implementing behaviour itself.
+    /// RepairController (with its behaviour registry) and ToolManager,
+    /// wires the spawner, interaction, and HUD/popup views to them via
+    /// events, and drives the "spawn next toy" loop. No repair rules live
+    /// here - only wiring, mirroring how Bootstrapper only wires managers
+    /// rather than implementing behaviour itself.
     /// </summary>
     public sealed class WorkshopController : MonoBehaviour
     {
@@ -22,40 +24,44 @@ namespace ToyRepairShop.Managers
         [SerializeField] private ToyView _toyView;
 
         [Header("Interaction")]
-        [SerializeField] private WashInteraction _washInteraction;
+        [SerializeField] private RepairDragInteraction _repairDragInteraction;
         [SerializeField] private ToolbarView _toolbarView;
 
         [Header("HUD")]
-        [SerializeField] private ProgressBarView _progressBarView;
+        [SerializeField] private RepairHUDView _repairHUD;
         [SerializeField] private RewardPopupView _rewardPopupView;
         [SerializeField] private CoinsDisplayView _coinsDisplayView;
 
-        [Header("Audio (optional placeholder)")]
+        [Header("Audio (optional placeholders)")]
         [SerializeField] private AudioClip _repairCompleteSfx;
+        [SerializeField] private AudioClip _incorrectToolSfx;
 
         private RepairController _repairController;
-        private ToolSelectionController _toolSelection;
+        private ToolManager _toolManager;
+
+        public RepairController RepairController => _repairController;
 
         private void Start()
         {
-            _repairController = new RepairController();
-            _toolSelection = new ToolSelectionController();
+            _repairController = new RepairController(new RepairBehaviourRegistry());
+            _toolManager = new ToolManager();
 
-            _toolbarView.Initialize(_toolSelection);
-            _washInteraction.Initialize(_repairController, _toolSelection);
+            _toolbarView.Initialize(_toolManager);
+            _toolbarView.ToolTapped += HandleToolTapped;
+            _repairDragInteraction.Initialize(_repairController);
 
             _toySpawner.ToySpawned += HandleToySpawned;
             _repairController.RepairStarted += HandleRepairStarted;
+            _repairController.RepairStepStarted += HandleRepairStepStarted;
             _repairController.RepairProgressChanged += HandleRepairProgress;
-            _repairController.ToyFinished += HandleToyFinished;
+            _repairController.RepairStepCompleted += HandleRepairStepCompleted;
+            _repairController.IncorrectToolUsed += HandleIncorrectToolUsed;
+            _repairController.ToyCompleted += HandleToyCompleted;
+            _toolManager.ToolSelected += HandleToolSelected;
 
-            _progressBarView.SetVisible(false);
+            _repairHUD.SetProgressVisible(false);
 
-            Toy toy = _toySpawner.Spawn();
-            if (toy != null)
-            {
-                _repairController.StartRepair(toy);
-            }
+            SpawnAndStartNextToy();
         }
 
         private void OnDestroy()
@@ -65,12 +71,37 @@ namespace ToyRepairShop.Managers
                 _toySpawner.ToySpawned -= HandleToySpawned;
             }
 
+            if (_toolbarView != null)
+            {
+                _toolbarView.ToolTapped -= HandleToolTapped;
+            }
+
+            if (_toolManager != null)
+            {
+                _toolManager.ToolSelected -= HandleToolSelected;
+            }
+
             if (_repairController != null)
             {
                 _repairController.RepairStarted -= HandleRepairStarted;
+                _repairController.RepairStepStarted -= HandleRepairStepStarted;
                 _repairController.RepairProgressChanged -= HandleRepairProgress;
-                _repairController.ToyFinished -= HandleToyFinished;
+                _repairController.RepairStepCompleted -= HandleRepairStepCompleted;
+                _repairController.IncorrectToolUsed -= HandleIncorrectToolUsed;
+                _repairController.ToyCompleted -= HandleToyCompleted;
             }
+        }
+
+        private void SpawnAndStartNextToy()
+        {
+            Toy toy = _toySpawner.SpawnRandom();
+            if (toy == null)
+            {
+                return;
+            }
+
+            _repairHUD.SetToyName(toy.Data.ToyName);
+            _repairController.StartRepair(toy);
         }
 
         private void HandleToySpawned(Toy toy)
@@ -78,24 +109,87 @@ namespace ToyRepairShop.Managers
             _toyView.Bind(toy);
         }
 
+        private void HandleToolTapped(ToolType tool)
+        {
+            _repairController.TrySelectTool(tool);
+        }
+
+        private void HandleToolSelected(ToolType? tool)
+        {
+            _repairHUD.SetCurrentTool(tool?.ToString());
+        }
+
+        private void HandleIncorrectToolUsed(ToolType tool)
+        {
+            _toolbarView.PlayIncorrectFeedback(tool);
+            AudioManager.Instance?.PlaySFX(_incorrectToolSfx);
+        }
+
         private void HandleRepairStarted(Toy toy)
         {
-            _progressBarView.SetVisible(true);
-            _progressBarView.SetProgress(0f);
+            _repairHUD.SetProgressVisible(true);
+            _repairHUD.SetProgress(0f);
+        }
+
+        private void HandleRepairStepStarted(Gameplay.Models.RepairStep step)
+        {
+            _repairHUD.SetCurrentStep(step.Data.StepName);
+            _repairHUD.SetNextStep(_repairController.NextStep?.Data.StepName);
+            _repairHUD.SetRemainingSteps(_repairController.RemainingStepCount);
+            _repairHUD.SetCurrentTool(null);
+            _repairHUD.SetProgress(0f);
         }
 
         private void HandleRepairProgress(float progress)
         {
-            _progressBarView.SetProgress(progress);
+            _repairHUD.SetProgress(progress);
         }
 
-        private void HandleToyFinished(Toy toy)
+        private void HandleRepairStepCompleted(Gameplay.Models.RepairStep step)
         {
-            _progressBarView.SetVisible(false);
+            _repairHUD.PlayStepSuccessPulse();
+        }
+
+        private void HandleToyCompleted(Toy toy)
+        {
+            _repairHUD.SetProgressVisible(false);
             _toyView.PlayRepairedTransition();
             _coinsDisplayView.AddCoins(toy.Data.RewardCoins);
-            _rewardPopupView.Show(toy.Data.RewardCoins);
             AudioManager.Instance?.PlaySFX(_repairCompleteSfx);
+            _rewardPopupView.Show(toy.Data.RewardCoins, SpawnAndStartNextToy);
         }
+
+#if UNITY_EDITOR
+        /// <summary>Editor-only: spawns a specific toy by ID and starts its repair. For the Stage 5 debug panel.</summary>
+        public void DebugSpawnToy(string toyId)
+        {
+            Toy toy = _toySpawner.Spawn(toyId);
+            if (toy == null)
+            {
+                return;
+            }
+
+            _repairHUD.SetToyName(toy.Data.ToyName);
+            _repairController.StartRepair(toy);
+        }
+
+        /// <summary>Editor-only: force-completes the current repair step. For the Stage 5 debug panel.</summary>
+        public void DebugSkipCurrentStep()
+        {
+            _repairController?.DebugForceCompleteCurrentStep();
+        }
+
+        /// <summary>Editor-only: force-completes every remaining step for the current toy. For the Stage 5 debug panel.</summary>
+        public void DebugCompleteToy()
+        {
+            _repairController?.DebugForceCompleteToy();
+        }
+
+        /// <summary>Editor-only: spawns a fresh random toy, discarding any in-progress repair. For the Stage 5 debug panel.</summary>
+        public void DebugResetWorkshop()
+        {
+            SpawnAndStartNextToy();
+        }
+#endif
     }
 }
