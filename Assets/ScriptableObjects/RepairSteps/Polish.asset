@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c066233da3ed3a59cc29afa2d5407a8b, type: 3}
+  m_Name: Polish
+  m_EditorClassIdentifier: 
+  _stepId: step_polish
+  _stepName: Polish
+  _repairType: 5
+  _toolRequired: 6
+  _duration: 12
+  _stepIcon: {fileID: 0}
+  _successMessage: Shiny and bright!
