@@ -1,4 +1,3 @@
-using ToyRepairShop.Data.Enums;
 using ToyRepairShop.Gameplay.Controllers;
 using ToyRepairShop.Managers;
 using UnityEngine;
@@ -7,28 +6,32 @@ using UnityEngine.EventSystems;
 namespace ToyRepairShop.Gameplay.Interaction
 {
     /// <summary>
-    /// Stage 4's single interaction: dragging over the toy while the
-    /// Sponge is selected increases wash progress. Driven entirely by
-    /// uGUI's drag callbacks (event-driven, no Update() polling), and
+    /// Generic drag-to-repair interaction: dragging over the toy while
+    /// RepairController is in the Repairing state feeds drag distance
+    /// into whichever IRepairBehaviour is currently active. Renamed from
+    /// Stage 4's WashInteraction now that tool validity is checked once
+    /// at tool-selection time (RepairController.TrySelectTool) rather
+    /// than per drag event, so this component no longer needs to know
+    /// about tools or Wash specifically - the same drag gesture now
+    /// drives every repair type's placeholder mechanic. Driven entirely
+    /// by uGUI's drag callbacks (event-driven, no Update() polling), and
     /// ignores any pointer beyond the first one already being tracked.
     /// </summary>
-    public sealed class WashInteraction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public sealed class RepairDragInteraction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField, Tooltip("Progress added per pixel of drag distance.")]
         private float _progressPerPixel = 0.004f;
 
-        [SerializeField, Tooltip("Optional placeholder SFX played once when a wash drag begins.")]
-        private AudioClip _cleaningSfx;
+        [SerializeField, Tooltip("Optional placeholder SFX played once when a repair drag begins.")]
+        private AudioClip _repairingSfx;
 
         private RepairController _repairController;
-        private ToolSelectionController _toolSelection;
         private int _activePointerId = -1;
 
-        /// <summary>Injects the pure C# controllers this interaction drives. Called by the scene's composition root.</summary>
-        public void Initialize(RepairController repairController, ToolSelectionController toolSelection)
+        /// <summary>Injects the pure C# controller this interaction drives. Called by the scene's composition root.</summary>
+        public void Initialize(RepairController repairController)
         {
             _repairController = repairController;
-            _toolSelection = toolSelection;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -38,13 +41,13 @@ namespace ToyRepairShop.Gameplay.Interaction
                 return;
             }
 
-            if (_toolSelection == null || _toolSelection.SelectedTool != ToolType.Sponge)
+            if (_repairController == null || !_repairController.IsRepairing)
             {
                 return;
             }
 
             _activePointerId = eventData.pointerId;
-            AudioManager.Instance?.PlaySFX(_cleaningSfx);
+            AudioManager.Instance?.PlaySFX(_repairingSfx);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -55,7 +58,7 @@ namespace ToyRepairShop.Gameplay.Interaction
             }
 
             float delta = eventData.delta.magnitude * _progressPerPixel;
-            _repairController?.TryAddProgress(ToolType.Sponge, delta);
+            _repairController?.AddProgress(delta);
         }
 
         public void OnEndDrag(PointerEventData eventData)
