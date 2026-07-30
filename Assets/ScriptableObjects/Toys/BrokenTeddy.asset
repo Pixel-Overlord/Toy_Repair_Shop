@@ -17,9 +17,9 @@ MonoBehaviour:
   _description: A well-loved teddy bear that needs some care.
   _category: 0
   _difficulty: 0
-  _thumbnailSprite: {fileID: 5116780547675814483, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
-  _brokenSprite: {fileID: 5116780547675814483, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
-  _repairedSprite: {fileID: -757918272197913656, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _thumbnailSprite: {fileID: -318973625387573850, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  _brokenSprite: {fileID: -318973625387573850, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  _repairedSprite: {fileID: -8077397790922929505, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
   _rewardCoins: 50
   _unlockLevel: 1
   _estimatedRepairTime: 60
@@ -27,3 +27,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f1b2088f7d8b2a63c5a4c60263bef932, type: 2}
   - {fileID: 11400000, guid: 1ce6691f74812286cd157d6a798e625d, type: 2}
   - {fileID: 11400000, guid: 20458f373b2c6583250a89b55786e36c, type: 2}
+  _repairStateSprites:
+  - {fileID: -3213083889237853652, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  - {fileID: 2437769232026954262, guid: 247e04f88f6f235499426b7e85c57679, type: 3}

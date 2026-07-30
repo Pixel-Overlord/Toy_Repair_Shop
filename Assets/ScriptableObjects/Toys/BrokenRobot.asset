@@ -17,9 +17,9 @@ MonoBehaviour:
   _description: A toy robot in need of a shine.
   _category: 1
   _difficulty: 1
-  _thumbnailSprite: {fileID: 6652270521144620588, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
-  _brokenSprite: {fileID: 6652270521144620588, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
-  _repairedSprite: {fileID: 4529819042415286244, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _thumbnailSprite: {fileID: 17426746270384133, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  _brokenSprite: {fileID: 17426746270384133, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  _repairedSprite: {fileID: 5332947737335612695, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
   _rewardCoins: 100
   _unlockLevel: 3
   _estimatedRepairTime: 120
@@ -27,3 +27,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fb3f447e1d38d188acf3a762bb5aac26, type: 2}
   - {fileID: 11400000, guid: a5fd66d4720be5408429d8440ca84a15, type: 2}
   - {fileID: 11400000, guid: 5c0435454bfc5735ba4fc99e2fd073b4, type: 2}
+  _repairStateSprites:
+  - {fileID: 5638259562752074330, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  - {fileID: -3378959473338303302, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
