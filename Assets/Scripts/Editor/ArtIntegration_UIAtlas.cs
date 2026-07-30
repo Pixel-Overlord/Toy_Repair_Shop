@@ -67,6 +67,18 @@ namespace ToyRepairShop.EditorTools
                 Object.DestroyImmediate(existingCanvas.gameObject);
             }
 
+            // Remove every prior MainMenuUI root - re-running this tool
+            // previously left duplicates behind (only the last one ends
+            // up wired, but stale unwired copies stick around too).
+            GameObject[] rootObjects = scene.GetRootGameObjects();
+            foreach (GameObject root in rootObjects)
+            {
+                if (root.name == "MainMenuUI")
+                {
+                    Object.DestroyImmediate(root);
+                }
+            }
+
             GameObject canvasGO = CreateCanvas();
             EnsureEventSystem();
 
