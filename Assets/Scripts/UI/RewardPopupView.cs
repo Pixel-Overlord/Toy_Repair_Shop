@@ -28,11 +28,6 @@ namespace ToyRepairShop.UI
 
         private void Awake()
         {
-            if (_root != null)
-            {
-                _root.SetActive(false);
-            }
-
             if (_continueButton != null)
             {
                 _continueButton.onClick.AddListener(HandleContinueClicked);
@@ -57,7 +52,7 @@ namespace ToyRepairShop.UI
 
             if (_completedText != null)
             {
-                _completedText.text = $"Congratulations for saving me, {toyName}!";
+                _completedText.text = $"Thanks for saving me buddy!";
             }
 
             if (_rewardText != null)

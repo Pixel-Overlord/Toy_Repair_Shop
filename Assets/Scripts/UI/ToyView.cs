@@ -72,7 +72,12 @@ namespace ToyRepairShop.UI
             IReadOnlyList<Sprite> states = _toy.Data.RepairStateSprites;
             if (completedStepIndex >= 0 && completedStepIndex < states.Count && states[completedStepIndex] != null)
             {
-                SetSprite(states[completedStepIndex]);
+                if (_transitionRoutine != null)
+                {
+                    StopCoroutine(_transitionRoutine);
+                }
+
+                _transitionRoutine = StartCoroutine(SwapSpriteWithFade(states[completedStepIndex]));
             }
 
             _animator?.SetTrigger(AdvanceTrigger);
@@ -122,6 +127,14 @@ namespace ToyRepairShop.UI
             SetSprite(_toy.Data.RepairedSprite);
             yield return FadeTo(1f, _fadeDuration);
             yield return Bounce();
+            _transitionRoutine = null;
+        }
+
+        private IEnumerator SwapSpriteWithFade(Sprite sprite)
+        {
+            yield return FadeTo(0f, _fadeDuration);
+            SetSprite(sprite);
+            yield return FadeTo(1f, _fadeDuration);
             _transitionRoutine = null;
         }
 
