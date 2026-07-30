@@ -17,9 +17,9 @@ MonoBehaviour:
   _description: A well-loved teddy bear that needs some care.
   _category: 0
   _difficulty: 0
-  _thumbnailSprite: {fileID: 0}
-  _brokenSprite: {fileID: 0}
-  _repairedSprite: {fileID: 0}
+  _thumbnailSprite: {fileID: 5116780547675814483, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _brokenSprite: {fileID: 5116780547675814483, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _repairedSprite: {fileID: -757918272197913656, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
   _rewardCoins: 50
   _unlockLevel: 1
   _estimatedRepairTime: 60

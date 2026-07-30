@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ToyRepairShop.Gameplay.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,14 @@ namespace ToyRepairShop.UI
     /// </summary>
     public sealed class ToyView : MonoBehaviour
     {
+        private static readonly int AdvanceTrigger = Animator.StringToHash("Advance");
+        private static readonly int CompleteTrigger = Animator.StringToHash("Complete");
+
         [SerializeField] private Image _toyImage;
+
+        [Header("Animator (optional - assign your own AnimatorController)")]
+        [SerializeField, Tooltip("Fires 'Advance' when a non-final step completes and 'Complete' when the toy is fully repaired. Leave unassigned until you have clips to play.")]
+        private Animator _animator;
 
         [Header("Repaired Transition")]
         [SerializeField, Tooltip("Seconds to fade out/in when swapping to the repaired sprite.")]
@@ -46,6 +54,30 @@ namespace ToyRepairShop.UI
             SetAlpha(1f);
         }
 
+        /// <summary>
+        /// Advances the toy's look after a non-final repair step completes.
+        /// completedStepIndex is zero-based (0 for the first step, 1 for
+        /// the second, ...). Swaps in the matching RepairStateSprites
+        /// entry if one is assigned; otherwise the sprite is left as-is,
+        /// but the Advance trigger still fires so an assigned Animator
+        /// can react (e.g. a shake/sparkle) even before per-step art exists.
+        /// </summary>
+        public void AdvanceToState(int completedStepIndex)
+        {
+            if (_toy == null)
+            {
+                return;
+            }
+
+            IReadOnlyList<Sprite> states = _toy.Data.RepairStateSprites;
+            if (completedStepIndex >= 0 && completedStepIndex < states.Count && states[completedStepIndex] != null)
+            {
+                SetSprite(states[completedStepIndex]);
+            }
+
+            _animator?.SetTrigger(AdvanceTrigger);
+        }
+
         /// <summary>Plays the broken-to-repaired sprite transition plus a small bounce.</summary>
         public void PlayRepairedTransition()
         {
@@ -53,6 +85,8 @@ namespace ToyRepairShop.UI
             {
                 return;
             }
+
+            _animator?.SetTrigger(CompleteTrigger);
 
             if (_transitionRoutine != null)
             {

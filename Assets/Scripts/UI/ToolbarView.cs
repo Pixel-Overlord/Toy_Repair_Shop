@@ -87,5 +87,17 @@ namespace ToyRepairShop.UI
                 }
             }
         }
+
+        /// <summary>Plays the correct-selection animator trigger on the button for the given tool, if present.</summary>
+        public void PlaySelectedFeedback(ToolType tool)
+        {
+            foreach (ToolButtonView button in _buttons)
+            {
+                if (button != null && button.Tool == tool)
+                {
+                    button.PlaySelectedFeedback();
+                }
+            }
+        }
     }
 }

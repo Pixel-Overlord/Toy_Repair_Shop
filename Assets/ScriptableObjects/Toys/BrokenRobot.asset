@@ -17,9 +17,9 @@ MonoBehaviour:
   _description: A toy robot in need of a shine.
   _category: 1
   _difficulty: 1
-  _thumbnailSprite: {fileID: 0}
-  _brokenSprite: {fileID: 0}
-  _repairedSprite: {fileID: 0}
+  _thumbnailSprite: {fileID: 6652270521144620588, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _brokenSprite: {fileID: 6652270521144620588, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _repairedSprite: {fileID: 4529819042415286244, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
   _rewardCoins: 100
   _unlockLevel: 3
   _estimatedRepairTime: 120

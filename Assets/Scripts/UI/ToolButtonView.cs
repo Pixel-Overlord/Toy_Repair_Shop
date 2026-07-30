@@ -14,10 +14,16 @@ namespace ToyRepairShop.UI
     /// </summary>
     public sealed class ToolButtonView : MonoBehaviour
     {
+        private static readonly int SelectedTrigger = Animator.StringToHash("Selected");
+
         [SerializeField] private ToolType _tool;
         [SerializeField] private Button _button;
         [SerializeField] private RectTransform _visualRoot;
         [SerializeField] private float _selectedScale = 1.15f;
+
+        [Header("Correct Selection Animator (optional)")]
+        [SerializeField, Tooltip("Fires 'Selected' when this tool is correctly chosen for the current step. Leave unassigned until you have a clip to play.")]
+        private Animator _animator;
 
         [Header("Incorrect Tool Feedback")]
         [SerializeField] private float _shakeDuration = 0.3f;
@@ -60,6 +66,12 @@ namespace ToyRepairShop.UI
             }
 
             _visualRoot.localScale = isSelected ? Vector3.one * _selectedScale : Vector3.one;
+        }
+
+        /// <summary>Fires the Selected animator trigger to indicate this tool was correctly chosen.</summary>
+        public void PlaySelectedFeedback()
+        {
+            _animator?.SetTrigger(SelectedTrigger);
         }
 
         /// <summary>Plays a brief shake to indicate this tool was tapped incorrectly.</summary>

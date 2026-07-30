@@ -47,6 +47,10 @@ namespace ToyRepairShop.Data.ScriptableObjects
         [SerializeField, Tooltip("Repair steps required to fully repair this toy, in order.")]
         private List<RepairStepData> _requiredRepairSteps = new List<RepairStepData>();
 
+        [Header("Repair State Visuals (optional - add art later)")]
+        [SerializeField, Tooltip("Optional sprite shown after each step completes, in order. Entry count should be RequiredRepairSteps.Count - 1 (the final step shows RepairedSprite instead). Leave entries empty until art is available - falls back to the current sprite.")]
+        private List<Sprite> _repairStateSprites = new List<Sprite>();
+
         public string ToyId => _toyId;
         public string ToyName => _toyName;
         public string Description => _description;
@@ -59,6 +63,7 @@ namespace ToyRepairShop.Data.ScriptableObjects
         public int UnlockLevel => _unlockLevel;
         public float EstimatedRepairTime => _estimatedRepairTime;
         public IReadOnlyList<RepairStepData> RequiredRepairSteps => _requiredRepairSteps;
+        public IReadOnlyList<Sprite> RepairStateSprites => _repairStateSprites;
 
         private void OnValidate()
         {
