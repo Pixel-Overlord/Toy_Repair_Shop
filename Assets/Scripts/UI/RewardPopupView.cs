@@ -6,17 +6,23 @@ using UnityEngine.UI;
 namespace ToyRepairShop.UI
 {
     /// <summary>
-    /// Reward popup shown when a toy finishes repair: coins earned, a
-    /// "Repair Completed" message, and a Continue button the player must
-    /// tap to proceed. Coins shown here are session-only - this view
-    /// never touches SaveManager.
+    /// Reward popup shown when a toy finishes repair: a personalized
+    /// "Congratulations for saving me" message, coins earned, and a
+    /// Continue button the player must tap to proceed. Coins shown here
+    /// are session-only - this view never touches SaveManager.
     /// </summary>
     public sealed class RewardPopupView : MonoBehaviour
     {
+        private static readonly int ShowTrigger = Animator.StringToHash("Show");
+
         [SerializeField] private GameObject _root;
         [SerializeField] private TMP_Text _rewardText;
         [SerializeField] private TMP_Text _completedText;
         [SerializeField] private Button _continueButton;
+
+        [Header("Entrance Animator (optional)")]
+        [SerializeField, Tooltip("Fires 'Show' each time Show() is called. Leave unassigned until you have a clip to play.")]
+        private Animator _animator;
 
         private Action _onContinue;
 
@@ -25,11 +31,6 @@ namespace ToyRepairShop.UI
             if (_root != null)
             {
                 _root.SetActive(false);
-            }
-
-            if (_completedText != null)
-            {
-                _completedText.text = "Repair Completed!";
             }
 
             if (_continueButton != null)
@@ -46,12 +47,17 @@ namespace ToyRepairShop.UI
             }
         }
 
-        /// <summary>Shows the popup with the given coin amount. onContinue fires once the player taps Continue.</summary>
-        public void Show(int coins, Action onContinue)
+        /// <summary>Shows the popup for the given toy and coin amount. onContinue fires once the player taps Continue.</summary>
+        public void Show(string toyName, int coins, Action onContinue)
         {
             if (_root == null)
             {
                 return;
+            }
+
+            if (_completedText != null)
+            {
+                _completedText.text = $"Congratulations for saving me, {toyName}!";
             }
 
             if (_rewardText != null)
@@ -61,6 +67,7 @@ namespace ToyRepairShop.UI
 
             _onContinue = onContinue;
             _root.SetActive(true);
+            _animator?.SetTrigger(ShowTrigger);
         }
 
         private void HandleContinueClicked()
