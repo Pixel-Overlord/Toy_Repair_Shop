@@ -157,13 +157,16 @@ namespace ToyRepairShop.EditorTools
             }
 
             RemoveChildIfExists(canvasGO.transform, "HelpButton");
-            Button helpButton = CreateTextButton(canvasGO.transform, "HelpButton", "BTN_Secondary_Blue", "?",
+            Button helpButton = CreateTextButton(canvasGO.transform, "HelpButton", "BTN_Primary_Blue", "?",
                 anchor: new Vector2(1f, 1f), anchoredPosition: new Vector2(-100f, -100f), size: new Vector2(140f, 140f));
 
             RemoveChildIfExists(canvasGO.transform, "HelpPanel");
             GameObject helpPanelGO = BuildHelpPanel(canvasGO.transform, out Button helpCloseButton);
 
-            GameObject settingsPanelGO = GameObject.Find("SettingsPanel");
+            // SettingsPanel is inactive by default (it's a hidden popup) -
+            // GameObject.Find skips inactive objects entirely, so it must
+            // be located via Transform.Find on its known parent instead.
+            GameObject settingsPanelGO = canvasGO.transform.Find("SettingsPanel")?.gameObject;
             Button settingsCloseButton = null;
             if (settingsPanelGO != null)
             {
@@ -281,7 +284,11 @@ namespace ToyRepairShop.EditorTools
                 Debug.LogWarning("ArtIntegration_AnimatorScaffolding: no 'ToyArea' found in Workshop scene.");
             }
 
-            GameObject popupPanelGO = GameObject.Find("PopupPanel");
+            // PopupPanel is inactive by default (it's a hidden popup) -
+            // GameObject.Find skips inactive objects entirely, so it must
+            // be located via Transform.Find on its known parent instead.
+            GameObject canvasGO = GameObject.Find("Canvas");
+            GameObject popupPanelGO = canvasGO != null ? canvasGO.transform.Find("PopupPanel")?.gameObject : null;
             if (popupPanelGO != null)
             {
                 Animator animator = GetOrAddAnimator(popupPanelGO, popupShow);
