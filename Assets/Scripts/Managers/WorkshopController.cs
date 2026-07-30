@@ -111,7 +111,11 @@ namespace ToyRepairShop.Managers
 
         private void HandleToolTapped(ToolType tool)
         {
-            _repairController.TrySelectTool(tool);
+            bool wasSelected = _repairController.TrySelectTool(tool);
+            if (wasSelected)
+            {
+                _toolbarView.PlaySelectedFeedback(tool);
+            }
         }
 
         private void HandleToolSelected(ToolType? tool)
@@ -148,6 +152,13 @@ namespace ToyRepairShop.Managers
         private void HandleRepairStepCompleted(Gameplay.Models.RepairStep step)
         {
             _repairHUD.PlayStepSuccessPulse();
+
+            if (_repairController.RemainingStepCount > 0)
+            {
+                // Not the final step - HandleToyCompleted handles the
+                // fully-repaired look instead when this was the last one.
+                _toyView.AdvanceToState(_repairController.CurrentToy.CompletedSteps.Count - 1);
+            }
         }
 
         private void HandleToyCompleted(Toy toy)
@@ -156,7 +167,7 @@ namespace ToyRepairShop.Managers
             _toyView.PlayRepairedTransition();
             _coinsDisplayView.AddCoins(toy.Data.RewardCoins);
             AudioManager.Instance?.PlaySFX(_repairCompleteSfx);
-            _rewardPopupView.Show(toy.Data.RewardCoins, SpawnAndStartNextToy);
+            _rewardPopupView.Show(toy.Data.ToyName, toy.Data.RewardCoins, SpawnAndStartNextToy);
         }
 
 #if UNITY_EDITOR
