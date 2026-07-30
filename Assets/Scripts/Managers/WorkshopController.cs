@@ -115,6 +115,7 @@ namespace ToyRepairShop.Managers
             if (wasSelected)
             {
                 _toolbarView.PlaySelectedFeedback(tool);
+                _repairHUD.SetInstruction("Drag on the toy to repair it!");
             }
         }
 
@@ -127,6 +128,7 @@ namespace ToyRepairShop.Managers
         {
             _toolbarView.PlayIncorrectFeedback(tool);
             AudioManager.Instance?.PlaySFX(_incorrectToolSfx);
+            _repairHUD.SetInstruction("Not quite - try a different tool!");
         }
 
         private void HandleRepairStarted(Toy toy)
@@ -142,6 +144,7 @@ namespace ToyRepairShop.Managers
             _repairHUD.SetRemainingSteps(_repairController.RemainingStepCount);
             _repairHUD.SetCurrentTool(null);
             _repairHUD.SetProgress(0f);
+            _repairHUD.SetInstruction("Choose the right tool below!");
         }
 
         private void HandleRepairProgress(float progress)
@@ -164,6 +167,7 @@ namespace ToyRepairShop.Managers
         private void HandleToyCompleted(Toy toy)
         {
             _repairHUD.SetProgressVisible(false);
+            _repairHUD.SetInstruction(string.Empty);
             _toyView.PlayRepairedTransition();
             _coinsDisplayView.AddCoins(toy.Data.RewardCoins);
             AudioManager.Instance?.PlaySFX(_repairCompleteSfx);

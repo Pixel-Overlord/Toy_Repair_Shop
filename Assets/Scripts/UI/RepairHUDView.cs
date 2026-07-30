@@ -20,6 +20,9 @@ namespace ToyRepairShop.UI
         [SerializeField] private TMP_Text _remainingStepsText;
         [SerializeField] private ProgressBarView _progressBarView;
 
+        [SerializeField, Tooltip("Contextual 'what to do next' hint. Left blank until a repair session actually starts.")]
+        private TMP_Text _instructionText;
+
         public void SetToyName(string toyName)
         {
             if (_toyNameText != null)
@@ -73,6 +76,15 @@ namespace ToyRepairShop.UI
         public void PlayStepSuccessPulse()
         {
             _progressBarView?.PlaySuccessPulse();
+        }
+
+        /// <summary>Sets the contextual "what to do next" hint. Pass an empty string to clear it.</summary>
+        public void SetInstruction(string message)
+        {
+            if (_instructionText != null)
+            {
+                _instructionText.text = message ?? string.Empty;
+            }
         }
     }
 }
