@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b92e29a4067753d327483cd2628133a, type: 3}
+  m_Name: BrokenRocket
+  m_EditorClassIdentifier: 
+  _toyId: toy_broken_rocket
+  _toyName: Broken Rocket
+  _description: A well-loved rocket that needs some care.
+  _category: 6
+  _difficulty: 0
+  _thumbnailSprite: {fileID: 6711257252158638106, guid: be611aec138424f4f928631a10c06f41, type: 3}
+  _brokenSprite: {fileID: 6711257252158638106, guid: be611aec138424f4f928631a10c06f41, type: 3}
+  _repairedSprite: {fileID: 3030430670136859216, guid: be611aec138424f4f928631a10c06f41, type: 3}
+  _rewardCoins: 50
+  _unlockLevel: 1
+  _estimatedRepairTime: 60
+  _requiredRepairSteps:
+  - {fileID: 11400000, guid: fb3f447e1d38d188acf3a762bb5aac26, type: 2}
+  - {fileID: 11400000, guid: a5fd66d4720be5408429d8440ca84a15, type: 2}
+  - {fileID: 11400000, guid: 5c0435454bfc5735ba4fc99e2fd073b4, type: 2}
+  _repairStateSprites:
+  - {fileID: -1497121213533345291, guid: be611aec138424f4f928631a10c06f41, type: 3}
+  - {fileID: -5894468589109551015, guid: be611aec138424f4f928631a10c06f41, type: 3}
