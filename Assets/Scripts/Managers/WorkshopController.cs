@@ -1,3 +1,5 @@
+using System.Collections;
+using ToyRepairShop.Data;
 using ToyRepairShop.Data.Enums;
 using ToyRepairShop.Gameplay.Behaviours;
 using ToyRepairShop.Gameplay.Controllers;
@@ -6,6 +8,7 @@ using ToyRepairShop.Gameplay.Models;
 using ToyRepairShop.Gameplay.Spawning;
 using ToyRepairShop.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ToyRepairShop.Managers
 {
@@ -31,10 +34,15 @@ namespace ToyRepairShop.Managers
         [SerializeField] private RepairHUDView _repairHUD;
         [SerializeField] private RewardPopupView _rewardPopupView;
         [SerializeField] private CoinsDisplayView _coinsDisplayView;
+        [SerializeField] private Button _backToMenuButton;
 
         [Header("Audio (optional placeholders)")]
         [SerializeField] private AudioClip _repairCompleteSfx;
         [SerializeField] private AudioClip _incorrectToolSfx;
+
+        [Header("Reward Popup")]
+        [SerializeField, Tooltip("Seconds to let the player see the fully-repaired toy before the Congratulations popup covers it.")]
+        private float _rewardPopupDelay = 1f;
 
         private RepairController _repairController;
         private ToolManager _toolManager;
@@ -57,7 +65,11 @@ namespace ToyRepairShop.Managers
             _repairController.RepairStepCompleted += HandleRepairStepCompleted;
             _repairController.IncorrectToolUsed += HandleIncorrectToolUsed;
             _repairController.ToyCompleted += HandleToyCompleted;
-            _toolManager.ToolSelected += HandleToolSelected;
+
+            if (_backToMenuButton != null)
+            {
+                _backToMenuButton.onClick.AddListener(HandleBackToMenuClicked);
+            }
 
             _repairHUD.SetProgressVisible(false);
 
@@ -76,9 +88,9 @@ namespace ToyRepairShop.Managers
                 _toolbarView.ToolTapped -= HandleToolTapped;
             }
 
-            if (_toolManager != null)
+            if (_backToMenuButton != null)
             {
-                _toolManager.ToolSelected -= HandleToolSelected;
+                _backToMenuButton.onClick.RemoveListener(HandleBackToMenuClicked);
             }
 
             if (_repairController != null)
@@ -90,6 +102,11 @@ namespace ToyRepairShop.Managers
                 _repairController.IncorrectToolUsed -= HandleIncorrectToolUsed;
                 _repairController.ToyCompleted -= HandleToyCompleted;
             }
+        }
+
+        private void HandleBackToMenuClicked()
+        {
+            SceneLoader.Instance.LoadSceneAsync(SceneNames.MainMenu);
         }
 
         private void SpawnAndStartNextToy()
@@ -119,11 +136,6 @@ namespace ToyRepairShop.Managers
             }
         }
 
-        private void HandleToolSelected(ToolType? tool)
-        {
-            _repairHUD.SetCurrentTool(tool?.ToString());
-        }
-
         private void HandleIncorrectToolUsed(ToolType tool)
         {
             _toolbarView.PlayIncorrectFeedback(tool);
@@ -139,17 +151,36 @@ namespace ToyRepairShop.Managers
 
         private void HandleRepairStepStarted(Gameplay.Models.RepairStep step)
         {
-            _repairHUD.SetCurrentStep(step.Data.StepName);
-            _repairHUD.SetNextStep(_repairController.NextStep?.Data.StepName);
-            _repairHUD.SetRemainingSteps(_repairController.RemainingStepCount);
-            _repairHUD.SetCurrentTool(null);
-            _repairHUD.SetProgress(0f);
+            _repairHUD.SetProgress(ComputeOverallProgress(0f));
             _repairHUD.SetInstruction("Choose the right tool below!");
         }
 
         private void HandleRepairProgress(float progress)
         {
-            _repairHUD.SetProgress(progress);
+            _repairHUD.SetProgress(ComputeOverallProgress(progress));
+        }
+
+        /// <summary>
+        /// Overall repair progress across the whole toy (0-1), so the HUD
+        /// bar climbs continuously instead of snapping back to 0 each time
+        /// a step finishes and the next one starts.
+        /// </summary>
+        private float ComputeOverallProgress(float currentStepProgress)
+        {
+            Toy toy = _repairController.CurrentToy;
+            if (toy == null)
+            {
+                return 0f;
+            }
+
+            int totalSteps = toy.Data.RequiredRepairSteps.Count;
+            if (totalSteps <= 0)
+            {
+                return 0f;
+            }
+
+            int completedSteps = toy.CompletedSteps.Count;
+            return (completedSteps + Mathf.Clamp01(currentStepProgress)) / totalSteps;
         }
 
         private void HandleRepairStepCompleted(Gameplay.Models.RepairStep step)
@@ -171,6 +202,13 @@ namespace ToyRepairShop.Managers
             _toyView.PlayRepairedTransition();
             _coinsDisplayView.AddCoins(toy.Data.RewardCoins);
             AudioManager.Instance?.PlaySFX(_repairCompleteSfx);
+            StartCoroutine(ShowRewardPopupDelayed(toy));
+        }
+
+        /// <summary>Waits a beat before showing the popup so the player actually sees the repaired toy instead of it being instantly covered.</summary>
+        private IEnumerator ShowRewardPopupDelayed(Toy toy)
+        {
+            yield return new WaitForSeconds(_rewardPopupDelay);
             _rewardPopupView.Show(toy.Data.ToyName, toy.Data.RewardCoins, SpawnAndStartNextToy);
         }
 
