@@ -17,9 +17,9 @@ MonoBehaviour:
   _description: A toy car that has seen better days.
   _category: 2
   _difficulty: 0
-  _thumbnailSprite: {fileID: 253664540647299032, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
-  _brokenSprite: {fileID: 253664540647299032, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
-  _repairedSprite: {fileID: 4788212801239585572, guid: e879a17006798bc41ad7b94d97dd6eb8, type: 3}
+  _thumbnailSprite: {fileID: -7921649188387484213, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  _brokenSprite: {fileID: -7921649188387484213, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  _repairedSprite: {fileID: -2337832699058076334, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
   _rewardCoins: 60
   _unlockLevel: 2
   _estimatedRepairTime: 90
@@ -27,3 +27,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f1b2088f7d8b2a63c5a4c60263bef932, type: 2}
   - {fileID: 11400000, guid: dcfdb2ab026024e7c8d9cf24c536bcd8, type: 2}
   - {fileID: 11400000, guid: 5c0435454bfc5735ba4fc99e2fd073b4, type: 2}
+  _repairStateSprites:
+  - {fileID: -7641860706416531140, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
+  - {fileID: -4661351177940155085, guid: 247e04f88f6f235499426b7e85c57679, type: 3}
