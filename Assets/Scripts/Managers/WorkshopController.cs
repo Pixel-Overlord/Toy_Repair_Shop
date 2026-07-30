@@ -151,6 +151,7 @@ namespace ToyRepairShop.Managers
 
         private void HandleRepairStepStarted(Gameplay.Models.RepairStep step)
         {
+            _repairHUD.SetCurrentStep(step.Data.StepName);
             _repairHUD.SetProgress(ComputeOverallProgress(0f));
             _repairHUD.SetInstruction("Choose the right tool below!");
         }
@@ -199,6 +200,7 @@ namespace ToyRepairShop.Managers
         {
             _repairHUD.SetProgressVisible(false);
             _repairHUD.SetInstruction(string.Empty);
+            _repairHUD.SetCurrentStep(string.Empty);
             _toyView.PlayRepairedTransition();
             _coinsDisplayView.AddCoins(toy.Data.RewardCoins);
             AudioManager.Instance?.PlaySFX(_repairCompleteSfx);

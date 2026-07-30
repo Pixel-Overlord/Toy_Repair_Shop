@@ -12,6 +12,7 @@ namespace ToyRepairShop.UI
     public sealed class RepairHUDView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _toyNameText;
+        [SerializeField] private TMP_Text _currentStepText;
         [SerializeField] private ProgressBarView _progressBarView;
 
         [SerializeField, Tooltip("Contextual 'what to do next' hint. Left blank until a repair session actually starts.")]
@@ -22,6 +23,14 @@ namespace ToyRepairShop.UI
             if (_toyNameText != null)
             {
                 _toyNameText.text = toyName;
+            }
+        }
+
+        public void SetCurrentStep(string stepName)
+        {
+            if (_currentStepText != null)
+            {
+                _currentStepText.text = string.IsNullOrEmpty(stepName) ? string.Empty : $"Current Step: {stepName}";
             }
         }
 
